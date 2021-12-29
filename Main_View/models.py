@@ -4,7 +4,7 @@ from django.db import models
 
 class Review(models.Model):
     review_text = models.TextField(max_length=150, verbose_name="Review&Comment Text")
-    customer_name = models.CharField(max_length=50, verbose_name="Customer Name")
+    related_name = models.CharField(max_length=50, verbose_name="Customer Name")
     
     class Meta:
         verbose_name= "Reviews"
@@ -13,3 +13,4 @@ class Review(models.Model):
     def __str__(self):
         return f"{self.customer_name}"
     
+   

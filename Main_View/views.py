@@ -4,6 +4,8 @@ from Shopping_Cart.models import Cart, CartProduct
 
 def home_page(request):
      products = Product.objects.all()
+     if not request.session.exists(request.session.session_key):
+          request.session.create()
      session = request.session.session_key
      cart = Cart.objects.get_or_create(session=session)
      cart_products = CartProduct.objects.filter(cart = cart[0].id)
